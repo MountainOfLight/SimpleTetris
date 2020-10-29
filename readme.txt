@@ -1,0 +1,1 @@
+Please open the folder source\SimpleTetris in IntelliJ IDEA or run the file exe\Simple Tetris V1.0\SimpleTetris.exe.

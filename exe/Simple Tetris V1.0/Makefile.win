@@ -1,0 +1,33 @@
+# Project: SimpleTetris
+# Makefile created by Dev-C++ 5.9.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = SimpleTetris_private.res
+OBJ      = SimpleTetris.o $(RES)
+LINKOBJ  = SimpleTetris.o $(RES)
+LIBS     = -L"D:/c/Dev-Cpp_gr/MinGW64/lib" -L"D:/c/Dev-Cpp_gr/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"D:/c/Dev-Cpp_gr/MinGW64/include" -I"D:/c/Dev-Cpp_gr/MinGW64/x86_64-w64-mingw32/include" -I"D:/c/Dev-Cpp_gr/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"D:/c/Dev-Cpp_gr/MinGW64/include" -I"D:/c/Dev-Cpp_gr/MinGW64/x86_64-w64-mingw32/include" -I"D:/c/Dev-Cpp_gr/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"D:/c/Dev-Cpp_gr/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = SimpleTetris.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+SimpleTetris.o: SimpleTetris.cpp
+	$(CPP) -c SimpleTetris.cpp -o SimpleTetris.o $(CXXFLAGS)
+
+SimpleTetris_private.res: SimpleTetris_private.rc 
+	$(WINDRES) -i SimpleTetris_private.rc --input-format=rc -o SimpleTetris_private.res -O coff 
+
